@@ -1053,8 +1053,3 @@ total_reads_ps <- sum(rowSums(as.data.frame(otu_table(subset_samples(ps, Env_exp
 total_reads_ps_filtered <- sum(rowSums(as.data.frame(otu_table(subset_samples(ps_filtered, Env_exposure %in% c("None"))))))
 percentage_remaining <- (total_reads_ps_filtered / total_reads_ps) * 100
 percentage_remaining
-
-109 changes: 109 additions & 0 deletions109  
-decontam.R
-Original file line number	Diff line number	Diff line change
-@@ -0,0 +1,109 @@
