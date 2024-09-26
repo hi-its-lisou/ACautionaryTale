@@ -48,3 +48,4 @@ t.test(control$Weight_change, antibiotic$Weight_change)
 table <- table(justeggs$Survived, justeggs$Treatment)
 chi <- chisq.test(table)
 chi
+
