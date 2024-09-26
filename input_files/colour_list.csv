@@ -11,7 +11,11 @@ Lautropia,#C02E3B
 Massilia,#FFD4DB
 Neisseria,#B73343
 Conchiformibius,#B33647
+<<<<<<< HEAD
 Snodgrassella,#AE384B
+=======
+Snodgrassella,#CC3300
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Cupriavidus,#AA3B4F
 Noviherbaspirillum,#A63D53
 Ralstonia,#A14057
@@ -43,8 +47,13 @@ Skermanella,#B1D4E0
 Candidatus_Alysiosphaera,#3880B2
 Geminicoccus,#3881AF
 Acidocella,#3982AD
+<<<<<<< HEAD
 Commensalibacter,#3984AA
 Gluconobacter,#3A85A7
+=======
+Commensalibacter,#FBE2D5
+Gluconobacter,#66FF33
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Bombella,#3A86A4
 Acetobacter,#3B87A1
 Asaia,#D8A7B1
@@ -61,7 +70,11 @@ Rhodoplanes,#419582
 Pseudolabrys,#429680
 Microvirga,#42987D
 Psychroglaciecola,#43997A
+<<<<<<< HEAD
 Methylobacterium-Methylorubrum,#439A77
+=======
+Methylobacterium-Methylorubrum,#0066FF
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Bosea,#449B74
 Bradyrhizobium,#449D72
 Afipia,#459E6F
@@ -72,7 +85,11 @@ Sphingopyxis,#47A364
 Qipengyuania,#48A461
 Altererythrobacter,#48A55E
 MN_122.2a,#49A75B
+<<<<<<< HEAD
 Sphingobium,#4AA858
+=======
+Sphingobium,#CCFFFF
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Devosia,#4AA955
 Bartonella,#4BAA53
 Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium,#4BAC50
@@ -99,7 +116,11 @@ MBNT15,#6D8570
 Bdellovibrio,#708074
 Peredibacter,#727E76
 Oligoflexus,#747B79
+<<<<<<< HEAD
 Bifidobacterium,#76797B
+=======
+Bifidobacterium,#7030A0
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Cutibacterium,#78767D
 Nocardioides,#7A7480
 Marmoricola,#7C7182
@@ -113,7 +134,11 @@ Phycicoccus,#896092
 Mobilicoccus,#8B5D94
 Brachybacterium,#8D5B96
 Gardnerella,#8F5899
+<<<<<<< HEAD
 Brevibacterium,#91569B
+=======
+Brevibacterium,#D86DCD
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Leucobacter,#93539D
 Amnibacterium,#95519F
 Marisediminicola,#974EA2
@@ -146,7 +171,11 @@ Saccharopolyspora,#DB6E38
 Microbispora,#DE6F34
 Crossiella,#E0702F
 Geodermatophilus,#E3712B
+<<<<<<< HEAD
 Blastococcus,#E57327
+=======
+Blastococcus,#88FACC
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Modestobacter,#D3B5E5
 Nakamurella,#EB751F
 Jatrophihabitans,#ED761B
@@ -173,9 +202,15 @@ Atopostipes,#FFAB11
 Dolosigranulum,#59981A
 Aerococcus,#FFB114
 Bacillus,#0023F5
+<<<<<<< HEAD
 Enterococcus,#A020F0
 Granulicatella,#FFBB18
 Lactobacillus,#ECF87F
+=======
+Enterococcus,#D86DCD
+Granulicatella,#FFBB18
+Lactobacillus,#FFFF00
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Floricoccus,#FFC21A
 Streptococcus,#FFC51C
 Weissella,#FFC81D
@@ -191,7 +226,11 @@ Novibacillus,#FFE629
 Sporosarcina,#FFE92A
 Oceanobacillus,#FFEC2B
 Aneurinibacillus,#FFEF2C
+<<<<<<< HEAD
 Staphylococcus,#FFF32E
+=======
+Staphylococcus,#C4BB00
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Rummeliibacillus,#FFF62F
 Lysinibacillus,#FFF930
 Solibacillus,#FFFC32
@@ -292,7 +331,11 @@ Arenimonas,#D28AB0
 Nevskia,#D08AAF
 Rickettsiella,#CD8BAE
 Acinetobacter,#FA26A0
+<<<<<<< HEAD
 Pseudomonas,#C98CAC
+=======
+Pseudomonas,#0033CC
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Halomonas,#C68DAB
 Zymobacter,#C48DAA
 Carnimonas,#EF7C8E
@@ -304,7 +347,11 @@ Haemophilus,#B591A4
 Aggregatibacter,#B392A3
 Actinobacillus,#B192A2
 Sodalis,#F51720
+<<<<<<< HEAD
 Escherichia-Shigella,#AC94A0
+=======
+Escherichia-Shigella,#BE5014
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
 Erwinia,#3D550C
 Arsenophonus,#81B622
 Serratia,#A5959D
@@ -315,3 +362,11 @@ Aeromonas,#9B9899
 Izhakiella,#999999
 Other,grey
 Tyzerella,#F8D210
+<<<<<<< HEAD
+=======
+NA_unclassified,#777777
+Enterobacteriaceae_unclassified,#FFFFAF
+Comamonadaceae_unclassified,#CC00CC
+Erwiniaceae_unclassified,#83CCEB
+Orbaceae_unclassified,#66FF66
+>>>>>>> 7c30a1a7ad8aee7a452707bb325de07ea81dda33
