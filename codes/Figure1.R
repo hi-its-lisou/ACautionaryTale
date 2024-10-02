@@ -220,3 +220,126 @@ legend <- get_legend(legendPlot)
 
 
 ggsave("figures/Abundances_plot_nolegend.png", height=8, width=12)
+
+
+(relativeBar <- df_Genus %>%
+    dplyr::filter(sample_type == "Prepupae") %>%
+        ggplot(aes(x = sampleid, y = Abundance, fill = Genus_20)) +
+    geom_bar(width = 1, stat = "identity") +
+    scale_fill_manual(values = my_palette) +
+    facet_nested(~ AB_treatment, scales = "free", space = "free") +
+    labs(x = "sampleid", y = "Relative abundance") +
+    theme( 
+      axis.text.y = element_text(size=14, face = "bold"),
+      axis.title.y = element_text(size=14, face = "bold"),
+      axis.ticks.y = element_line(linewidth = 1),
+      axis.text.x = element_text(size=5),
+      axis.title.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      legend.title = element_blank(),
+      legend.text = element_text(size = 12),
+      legend.position = "right",
+      strip.background = element_blank(),
+      strip.text = element_text(size=14, face = "bold"),
+      panel.background = element_blank()
+    ))
+
+
+ggsave("figures/Prepupae_unfiltered_legend.png", height=5, width=10)
+
+# Remove contaminants, chloroplasts, and mitochondria ####
+contam <- read_delim("input_files/chloro_mito_decontam_asvs.txt", 
+                     delim = "\n", 
+                     col_names = "asv")
+chloro_mito_decontam_asvs <- contam$asv
+all_asvs <- taxa_names(ps)
+asvs_to_keep <- all_asvs[!(all_asvs %in% chloro_mito_decontam_asvs)]
+ps <- prune_taxa(asvs_to_keep, ps)
+ps
+
+
+
+
+#Collapse to Genus level and pull our relative abundance of top 20 common genuses.
+ps_Genus <- tax_glom(ps, taxrank = "Genus", NArm = FALSE)
+
+if ("Family" %in% colnames(tax_table(ps_Genus))) {
+  
+  tax_table(ps_Genus)[is.na(tax_table(ps_Genus)[, "Genus"]), "Genus"] <- 
+    paste(as.character(tax_table(ps_Genus)[is.na(tax_table(ps_Genus)[, "Genus"]), "Family"]), "unclassified", sep = "_")
+} else {
+  tax_table(ps_Genus)[is.na(tax_table(ps_Genus)[, "Genus"]), "Genus"] <- "Unclassified"
+}
+
+# Replace "NA" (as a string) in the Genus column with "NA_unclassified"
+tax_table(ps_Genus)[tax_table(ps_Genus)[, "Genus"] == "NA", "Genus"] <- "NA_unclassified"
+tax_table(ps_Genus)[tax_table(ps_Genus)[, "Genus"] == "<NA>", "Genus"] <- "NA_unclassified"
+
+top20Genus = names(sort(taxa_sums(ps_Genus), TRUE)[1:19])
+taxtab20 = cbind(tax_table(ps_Genus), Genus_20 = NA)
+taxtab20[top20Genus, "Genus_20"] <- as(tax_table(ps_Genus)
+                                       [top20Genus, "Genus"], "character")
+
+tax_table(ps_Genus) <- tax_table(taxtab20)
+ps_Genus_ra <- transform_sample_counts(ps_Genus, function(x) 100 * x/sum(x))
+df_Genus <- psmelt(ps_Genus_ra)
+df_Genus <- arrange(df_Genus, sample_type)
+df_Genus$Genus_20[is.na(df_Genus$Genus_20)] <- c("Other")
+
+# View the result
+print(unique(df_Genus$Genus_20))
+
+# % of reads that make up the top 20 genera ####
+mean(sample_sums(prune_taxa(top20Genus, ps_Genus_ra)))
+
+
+custom_order <- c("Acinetobacter", 
+                  "Erwinia",
+                  "Arsenophonus",
+                  "Tyzzerella",
+                  "NA_unclassified",
+                  "Comamonadaceae_unclassified",
+                  "Enterobacteriaceae_unclassified",
+                  "Aquabacterium",
+                  "Gilliamella",
+                   "Lactobacillus",
+                   "Orbaceae_unclassified",
+                   "Snodgrassella",
+                   "Commensalibacter",
+                   "Bartonella",
+                   "Bifidobacterium",
+                   "Enhydrobacter",
+                   "Paenibacillus",
+                   "uncultured",
+                   "Pseudomonas",
+                   "Other")
+
+
+
+df_Genus$Genus_20 <- factor(df_Genus$Genus_20, levels = custom_order)
+
+
+(relativeBar <- df_Genus %>%
+    dplyr::filter(sample_type == "Prepupae") %>%
+    ggplot(aes(x = sampleid, y = Abundance, fill = Genus_20)) +
+    geom_bar(width = 1, stat = "identity") +
+    scale_fill_manual(values = my_palette) +
+    facet_nested(~ AB_treatment, scales = "free", space = "free") +
+    labs(x = "sampleid", y = "Relative abundance") +
+    theme( 
+      axis.text.y = element_text(size=14, face = "bold"),
+      axis.title.y = element_text(size=14, face = "bold"),
+      axis.ticks.y = element_line(linewidth = 1),
+      axis.text.x = element_text(size=8),
+      axis.title.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      legend.title = element_blank(),
+      legend.text = element_text(size = 12),
+      legend.position = "right",
+      strip.background = element_blank(),
+      strip.text = element_text(size=14, face = "bold"),
+      panel.background = element_blank()
+    ))
+
+
+ggsave("figures/Prepupae_filtered_legend.png", height=5, width=10)
