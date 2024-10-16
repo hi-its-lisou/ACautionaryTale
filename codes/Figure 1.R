@@ -212,3 +212,14 @@ df_Genus$Genus_20 <- factor(df_Genus$Genus_20, levels = custom_order)
 
 
 ggsave("figures/Prepupae_filtered_nolegend.png", height=6, width=12)
+
+#Refactor metadata
+prepupae_subset <- as(sample_data(ps), "data.frame")
+prepupae_subset$AB_treatment[is.na(prepupae_subset$AB_treatment)] <- "Natural"
+
+#Run adonis with 9999 permutations
+uw_adonis <- adonis2(distance(ps, method="unifrac") ~ AB_treatment, 
+                     data = prepupae_subset, 
+                     permutations = 9999)
+uw_adonis
+
